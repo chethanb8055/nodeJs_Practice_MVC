@@ -1,17 +1,14 @@
-const express = require("express");
-const server = express();
-
+const express = require('express');
+const productController = require('../controller/product');
 
 const router = express.Router();
 
-//server attach this to router a
-
 router
-.post("/products", productController.createProduct)
-.get("/products", productController.getAllProduct)
-.get("/products/:id", productController.getProduct)
-.put("/products/:id", productController.replceProduct)
-.patch("/products/:id", productController.updateProduct)
-.delete("/products/:id", productController.deleteProduct)
+  .post('/', productController.createProduct)
+  .get('/', productController.getAllProducts)
+  .get('/:id', productController.getProduct)
+  .put('/:id', productController.replaceProduct)
+  .patch('/:id', productController.updateProduct)
+  .delete('/:id', productController.deleteProduct);
 
-exports.router = router
+exports.router = router;  
